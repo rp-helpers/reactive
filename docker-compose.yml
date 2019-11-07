@@ -1,0 +1,10 @@
+postgres:
+  image: postgres:alpine
+  ports:
+    - "5432:5432"
+  environment:
+    TZ: "GMT+1"
+    PGTZ: "GMT+1"
+    POSTGRES_DB: "jwt-dev"
+    POSTGRES_USER: "jwt-dev-owner"
+    POSTGRES_PASSWORD: "pass"
