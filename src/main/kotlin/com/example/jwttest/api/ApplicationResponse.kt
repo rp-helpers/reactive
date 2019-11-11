@@ -1,13 +1,14 @@
 package com.example.jwttest.api
 
 import com.example.jwttest.domain.Application
+import java.time.LocalDate
 import java.util.*
 
 data class ApplicationResponse(
         val publicApplicationId: UUID,
         val name: String,
         val status: String,
-        val createDate: Date) {
+        val createDate: LocalDate) {
 
     companion object {
         fun from(application: Application) =

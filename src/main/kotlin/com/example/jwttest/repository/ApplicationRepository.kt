@@ -1,3 +1,4 @@
+/*
 package com.example.jwttest.repository
 
 import com.example.jwttest.domain.Application
@@ -6,4 +7,4 @@ import java.util.*
 
 interface ApplicationRepository : JpaRepository<Application, Long> {
     fun findByPublicApplicationId(id: UUID): Optional<Application>
-}
+}*/
