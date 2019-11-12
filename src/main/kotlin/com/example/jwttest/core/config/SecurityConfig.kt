@@ -23,7 +23,8 @@ class SecurityConfig(
         http
                 .authorizeExchange { exchanges ->
                     exchanges
-                            .pathMatchers("/test/applications/get/a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11").hasRole("USER")
+                            .pathMatchers("/test/applications/get/*").hasRole("USER")
+                            .pathMatchers("/test/applications/authUser").permitAll()
                             .anyExchange().authenticated()
 
                 }
