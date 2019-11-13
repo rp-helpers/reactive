@@ -2,6 +2,7 @@ package com.example.jwttest.core.config
 
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.http.HttpMethod
 import org.springframework.security.config.annotation.web.reactive.EnableWebFluxSecurity
 import org.springframework.security.core.userdetails.MapReactiveUserDetailsService
 import org.springframework.security.core.userdetails.User.withDefaultPasswordEncoder
@@ -25,11 +26,18 @@ class SecurityConfig(
                     exchanges
                             .pathMatchers("/test/applications/get/*").hasRole("USER")
                             .pathMatchers("/test/applications/authUser").permitAll()
+                            .pathMatchers("/stream-flux").permitAll()
+                            .pathMatchers("/stream-sse").permitAll()
+                            .pathMatchers("/receive").permitAll()
+                            .pathMatchers("/send").permitAll()
+                            .pathMatchers(HttpMethod.POST, "/send").permitAll()
+                            .pathMatchers("/get").permitAll()
                             .anyExchange().authenticated()
 
                 }
                 .authenticationManager(authenticationManager)
                 .securityContextRepository(securityContextRepository)
+                .csrf().disable()
         return http.build()
     }
 
